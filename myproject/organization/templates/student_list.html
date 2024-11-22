@@ -1,0 +1,78 @@
+<head>
+    <style>
+       *{
+        box-sizing: border-box;
+       }
+       h2{
+        text-align: center;
+       }
+       table{
+        margin: 20px auto;
+        width: 80%;
+        border-collapse: collapse;
+       }
+       thead{
+        background-color: #f2f2f2;
+       }
+       th{
+        padding: 10px;
+        text-align: center;
+        font-size: 16px;
+        background-color:rgb(78, 175, 78);
+        color: rgb(249, 249, 250);
+       }
+       td{
+        padding: 8px;
+        text-align: center;
+        font-size: 14px;
+        border: 1px solid grey;
+       }
+       
+       a button{
+        background-color: red;
+        color: azure;
+       }
+       tr:hover{
+        background-color: #f2f2f2;
+       }
+       
+    </style>
+</head>
+<h2>Students list</h2>
+<a href="{%url 'student_create' %}"><button>Add new student</button></a>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>D.O.B</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for student in students%}
+        <tr>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.address}}</td>
+            <td>{{student.date_of_birth}}</td>
+            <td><a href="{%url 'student_update' student.id %}"><button>Update</button></a></td>
+            <td><a href="{%url 'student_delete' student.id %}"><button>Delete</button></a></td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
+<!-- <div class="stats">
+    <p>total studets:{{total_students}}</p>
+    <p>Average age:{{average_age.average_age}}</p>
+    <p>youngest_student:{{youngest_student.min_age}}</p>
+    <p>oldest_student:{{oldest_student.max_age}}</p>
+    <p>student_order_by_age:{{student_order_by_age}}</p>
+    <p>student_order_by_dec:{{student_order_by_dec}}</p>
+    <p>distinct_ages:{{distinct_ages}}</p>
+</div> -->

@@ -1,0 +1,68 @@
+<head>
+    <style>
+        form{
+            max-width :400px;
+            margin: auto;
+            padding: 20px;
+            background-color: aqua;
+            border: 1px solid gray;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0,1);
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        form div{
+            margin-bottom: 15px;
+
+        }
+        form label{
+            display: block;
+            font-size: 14px;
+            color: black;
+            margin-bottom: 5px;
+        }
+        form button{
+            display:inline-block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: brown;
+            color: aliceblue;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3 ease;
+        }
+        form button:hover{
+            background-color: red;
+        }
+
+
+
+    </style>
+</head>
+<form method="POST">
+{%csrf_token%}
+<div>
+    <label for= "{{form.name.id_for_label}}" >Name</label>
+    {{form.name}}
+</div>
+<div>
+    <label for= "{{form.age.id_for_label}}" >Age</label>
+    {{form.age}}
+</div>
+<div>
+    <label for= "{{form.email.id_for_label}}" >email</label>
+    {{form.email}}
+</div>
+<div>
+    <label for= "{{form.address.id_for_label}}" >address</label>
+    {{form.address}}
+</div>
+<div>
+    <label for= "{{form.date_of_birth.id_for_label}}" >date_of_birth</label>
+    {{form.date_of_birth}}
+</div>
+<button type="submit">{%if form.instance.pk%}Update{%else%}Create{%endif%}</button>
+</form>
+    
